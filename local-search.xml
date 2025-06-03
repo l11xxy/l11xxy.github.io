@@ -4,9 +4,61 @@
   
   
   <entry>
-    <title>测试文章</title>
-    <link href="/2024/09/21/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
-    <url>/2024/09/21/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
+    <title>111</title>
+    <link href="/2025/05/13/111/"/>
+    <url>/2025/05/13/111/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>机器学习期末预习</title>
+    <link href="/2024/12/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <url>/2024/12/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="机器学习期末预习"><a href="#机器学习期末预习" class="headerlink" title="机器学习期末预习"></a>机器学习期末预习</h2><p>发现一个网站：<a href="https://zhangzhao219.github.io/2022/12/11/UCAS/machine-learning/machine-learning-final/">https://zhangzhao219.github.io/2022/12/11/UCAS/machine-learning/machine-learning-final/</a></p><ul><li>监督学习</li><li>（1）分类</li><li>（2）回归：预测走向</li><li>无监督学习</li><li>（1）聚类</li><li>（2）降维</li></ul><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224105349005.png" alt="image-20241224105349005"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224105610330.png" alt="image-20241224105610330"></p><p>平方损失函数更敏感一些</p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224105944418.png" alt="image-20241224105944418"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224110005891.png" alt="image-20241224110005891"></p><h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p> 对于多分类问题，如果要分n类，那么需要分类n-1次 </p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224204940790.png" alt="image-20241224204940790"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224205024701.png" alt="image-20241224205024701"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224205039307.png" alt="image-20241224205039307"></p><p>sigmoid函数$f(z) &#x3D; \frac{1}{1+e^{-z}} $,可以将$[-\infty,+\infty]$上的实数值映射到$[-1,+1]$的范围上。 </p><h3 id="决策树（decision-tree）"><a href="#决策树（decision-tree）" class="headerlink" title="决策树（decision tree）"></a>决策树（decision tree）</h3><p>是一种特殊的树的结构</p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241225100149008.png" alt="image-20241225100149008"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241225100414423.png" alt="image-20241225100414423"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241225101611016.png" alt="image-20241225101611016"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241225103413663.png" alt="image-20241225103413663"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241225104101941.png" alt="image-20241225104101941"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241225104155039.png" alt="image-20241225104155039"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241225104636139.png" alt="image-20241225104636139"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241225105053100.png" alt="image-20241225105053100"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241225110750048.png" alt="image-20241225110750048"></p><h3 id="集成学习算法"><a href="#集成学习算法" class="headerlink" title="集成学习算法"></a>集成学习算法</h3><p>集成算法主要包含三类：bagging，Boosting，stacking</p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224214308029.png" alt="image-20241224214308029"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224214457146.png" alt="image-20241224214457146"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224220040012.png" alt="image-20241224220040012"></p><p><img src="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20241224220052009.png" alt="image-20241224220052009"></p><h3 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h3><p> 硬间隔是指完全分类准确，软间隔就是允许一些分类错误</p><p>线性可分，线性不可分</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>欧几里得算法</title>
+    <link href="/2024/12/22/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
+    <url>/2024/12/22/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h2 id="欧几里得算法（gcd）"><a href="#欧几里得算法（gcd）" class="headerlink" title="欧几里得算法（gcd）"></a>欧几里得算法（gcd）</h2><p>对于整数 a 和 b，gcd (a, b) 表示 a 和 b 的最大公约数。例如，gcd (12, 18)&#x3D;6，因为 6 是 12 和 18 的最大公因数。</p><ul><li><p>使用欧几里得算法来高效地<strong>计算两个整数的最大公约数</strong></p></li><li><p>原理：辗转相除法</p></li></ul><p>$gcd(a,b) &#x3D; gcd(b,a<del>mod</del>b)$</p><p>这里我们简单的推一下</p><p>不妨设$a&gt;b$,令$a &#x3D; k  \times  b $</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>数论</title>
+    <link href="/2024/12/17/%E6%95%B0%E8%AE%BA/"/>
+    <url>/2024/12/17/%E6%95%B0%E8%AE%BA/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>整数分解为素数的几个方法</title>
+    <link href="/2024/10/14/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E7%B4%A0%E6%95%B0%E7%9A%84%E5%87%A0%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
+    <url>/2024/10/14/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E7%B4%A0%E6%95%B0%E7%9A%84%E5%87%A0%E4%B8%AA%E6%96%B9%E6%B3%95/</url>
     
     <content type="html"><![CDATA[]]></content>
     
