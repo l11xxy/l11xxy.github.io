@@ -28,7 +28,8 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://l11xxy.github.io/2025/06/04/QiskitLearning/image-20250606191249866.png">
 <meta property="article:published_time" content="2025-06-03T16:30:41.000Z">
-<meta property="article:modified_time" content="2025-06-16T10:25:51.903Z">
+<meta property="article:modified_time" content="2026-06-19T03:23:56.407Z">
+<meta property="article:tag" content="Quantum">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://l11xxy.github.io/2025/06/04/QiskitLearning/image-20250606191249866.png">
   
@@ -385,24 +386,20 @@
 <p>以下内容都是基于qiskit1.4.3实现的</p>
 <p>[toc]</p>
 <h2 id="最简单的一个demo"><a href="#最简单的一个demo" class="headerlink" title="最简单的一个demo"></a>最简单的一个demo</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> qiskit <span class="hljs-keyword">import</span> QuantumCircuit<br><br>qc = QuantumCircuit(<span class="hljs-number">2</span>) <span class="hljs-comment">#初始一个两比特的量子电路</span><br><br><span class="hljs-comment">#定义初始状态0态和1态</span><br>initial_state_0 = [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>]<br>initial_state_1 = [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>]<br><span class="hljs-comment">#对两个比特分别应用初始状态</span><br>qc.initialize(initial_state_0,<span class="hljs-number">0</span>)<br>qc.initialize(initial_state_1,<span class="hljs-number">1</span>)<br><span class="hljs-comment"># 展示量子电路</span><br>qc.draw(<span class="hljs-string">&quot;text&quot;</span>)<br></code></pre></td></tr></table></figure>
-
 <p>同时注意，我们此时是在Jupyter上运行的，所以qc.draw会直接显示出来，但是如果是在py文件中运行，那么qc.draw返回的是一个字符串，需要我们把他print出来。同理，如果是使用qc.draw(“mpl”)，那么需要plt.show。</p>
 <h2 id="现在为电路添加上量子门"><a href="#现在为电路添加上量子门" class="headerlink" title="现在为电路添加上量子门"></a>现在为电路添加上量子门</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">qc.h(<span class="hljs-number">0</span>)<br><br>qc.cx(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)<br><br>qc.draw(<span class="hljs-string">&quot;mpl&quot;</span>)<br></code></pre></td></tr></table></figure>
-
-
-
 <p><img src="/2025/06/04/QiskitLearning/image-20250606191249866.png" srcset="/img/loading.gif" lazyload alt="image-20250606191249866"></p>
 <p>可以看到我们在量子线路上添加了两个量子门，一个是H门，一个是CX门。</p>
 <p>H门只需要一个量子比特输入，所以只出现在q0这条线路上，CNOT门是一个用于创建纠缠的量子比特的门，C指Controlled，受控的，所以有两个量子比特输入，第一个量子比特作为控制比特，第二个作为被控制的比特。</p>
 <h2 id="测量方式"><a href="#测量方式" class="headerlink" title="测量方式"></a>测量方式</h2><p>我们现在有了初始的量子比特，也对量子比特进行了操作，那么我们最终是需要对量子比特进行测量的，下面给出qiskit中几种进行测量的方式。</p>
-<h3 id="第一种测量方式，使用AerSimulator"><a href="#第一种测量方式，使用AerSimulator" class="headerlink" title="第一种测量方式，使用AerSimulator"></a>第一种测量方式，使用AerSimulator</h3><p>首先给出一个概念，量子比特在测量前可能处于叠加或者纠缠态，比如|ψ⟩ &#x3D; α|0⟩ + β|1⟩，但是我们无法直接看到这个态，当我们使用Z基进行测量的时候，这个处于叠加态的量子态会塌缩为一个经典结果，0或者1。</p>
+<h3 id="第一种测量方式，使用AerSimulator"><a href="#第一种测量方式，使用AerSimulator" class="headerlink" title="第一种测量方式，使用AerSimulator"></a>第一种测量方式，使用AerSimulator</h3><p>首先给出一个概念，量子比特在测量前可能处于叠加或者纠缠态，比如|ψ⟩ = α|0⟩ + β|1⟩，但是我们无法直接看到这个态，当我们使用Z基进行测量的时候，这个处于叠加态的量子态会塌缩为一个经典结果，0或者1。</p>
 <p>这个过程是不可逆的，并且每次测量都可能得到不同的结果。</p>
 <p>所以在qiskit的设计中中必须使用一个经典比特来储存测量结果，所以我们必须对前面的代码进行一点改变，在QuantumCircuit中添加经典比特才能进行测量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">qc = QuantumCircuit(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>) <span class="hljs-comment">#初始一个两量子比特两经典比特的电路</span><br></code></pre></td></tr></table></figure>
-
 <p>然后我们需要导入qiskit_aer来对电路进行模拟，qiskit_aer是用于在经典计算机上高效地模拟量子电路的执行和噪声的后端库。</p>
 <p>自 Qiskit 1.0 起，Aer被从主库中分离出来，成为一个独立安装的包：qiskit_aer。所以在有些教程中让在Qiskit中导入，实际上已经过时挺久的了😭。</p>
 <p>qiskit_aer提供了多个模拟器后段，我只看了第一个，所以后边我们就用第一个来演示。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -410,7 +407,8 @@
 <th>功能说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>AerSimulator</code></td>
 <td>通用模拟器，支持噪声、自定义运行配置等（Qiskit 1.0 之后推荐使用）</td>
 </tr>
@@ -422,59 +420,49 @@
 <td><code>UnitarySimulator</code></td>
 <td>输出电路的总酉矩阵（主要用于调试）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>从qiskit_aer中导入模拟器</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> qiskit_aer <span class="hljs-keyword">import</span> AerSimulator<br>qc.measure(<span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>),<span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>))<br>simulator = AerSimulator()<br>job = simulator.run(qc)<br><span class="hljs-built_in">print</span>(job.result().get_counts(qc))<br></code></pre></td></tr></table></figure>
-
 <p>然后我们可以的得到测量结果</p>
 <p>{‘11’: 514, ‘00’: 510}</p>
 <h3 id="第二种测量方式，使用StatevectorSimulator进行测量"><a href="#第二种测量方式，使用StatevectorSimulator进行测量" class="headerlink" title="第二种测量方式，使用StatevectorSimulator进行测量"></a>第二种测量方式，使用StatevectorSimulator进行测量</h3><p>在StatevectorSimulator中模拟整个量子电路的量子态，所以直接给出的是电路中运行的量子态，所以并没有进行测量，所以也就不需要经典比特。</p>
 <p>下面给出一个测试demo。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> qiskit <span class="hljs-keyword">import</span> QuantumCircuit<br><span class="hljs-keyword">from</span> qiskit.quantum_info <span class="hljs-keyword">import</span> Statevector<br><br>qc = QuantumCircuit(<span class="hljs-number">1</span>)<br>qc.h(<span class="hljs-number">0</span>)<br>state = Statevector.from_instruction(qc)<br><span class="hljs-built_in">print</span>(state)<br></code></pre></td></tr></table></figure>
-
 <p>可以看到显然没有measure()操作，所以也就没有用到经典比特。</p>
 <h2 id="自定义一个门"><a href="#自定义一个门" class="headerlink" title="自定义一个门"></a>自定义一个门</h2><h2 id="qiskit中的条件控制"><a href="#qiskit中的条件控制" class="headerlink" title="qiskit中的条件控制"></a>qiskit中的条件控制</h2><p>此功能通过 <a target="_blank" rel="noopener" href="https://docs.quantum.ibm.com/api/qiskit/1.4/qiskit.circuit.IfElseOp"><code>qiskit.circuit.IfElseOp</code></a> 实现。</p>
 <p>用简单的一句话来解释就是’<strong>如果某个经典比特的条件成立，就执行某个量子子电路，否则执行另一个子电路</strong>。‘。</p>
 <p>同样给出一个简单的demo。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">from</span> qiskit <span class="hljs-keyword">import</span> QuantumCircuit, ClassicalRegister, QuantumRegister<br><span class="hljs-keyword">from</span> qiskit.circuit <span class="hljs-keyword">import</span> IfElseOp<br><br>qc = QuantumCircuit(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)<br><br>Circuit_1 = QuantumCircuit(<span class="hljs-number">1</span>)<br>Circuit_1.h(<span class="hljs-number">0</span>)<br><br>Circuit_2 = QuantumCircuit(<span class="hljs-number">1</span>)<br>Circuit_2.x(<span class="hljs-number">0</span>)<br><br>ifelse_op = IfElseOp((qc.clbits[<span class="hljs-number">0</span>],<span class="hljs-number">1</span>),Circuit_1,Circuit_2)<br>qc.append(ifelse_op,[<span class="hljs-number">0</span>])<br><br><br>qc.draw(<span class="hljs-string">&#x27;mpl&#x27;</span>)<br>plt.show()<br></code></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h2 id="下面是几个遇到的小问题："><a href="#下面是几个遇到的小问题：" class="headerlink" title="下面是几个遇到的小问题："></a>下面是几个遇到的小问题：</h2><ol>
 <li><p>在之前的qiskit中两个量子线路可以通过+进行组合，但是在现在较新的版本下已经变为了使用以下几个方法进行组合</p>
 <ul>
 <li><p>QuantumCircuit.append() </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">append(instruction, qargs=<span class="hljs-literal">None</span>, cargs=<span class="hljs-literal">None</span>, *, copy=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
-
 <p>Append one or more instructions to the end of the circuit, modifying the circuit in place.</p>
 <p>The <code>qargs</code> and <code>cargs</code> will be expanded and broadcast according to the rules of the given <a target="_blank" rel="noopener" href="https://docs.quantum.ibm.com/api/qiskit/1.4/qiskit.circuit.Instruction"><code>Instruction</code></a>, and any non-<a target="_blank" rel="noopener" href="https://docs.quantum.ibm.com/api/qiskit/1.4/circuit#qiskit.circuit.Bit"><code>Bit</code></a> specifiers (such as integer indices) will be resolved into the relevant instances.</p>
 <p>If a <a target="_blank" rel="noopener" href="https://docs.quantum.ibm.com/api/qiskit/1.4/qiskit.circuit.CircuitInstruction"><code>CircuitInstruction</code></a> is given, it will be unwrapped, verified in the context of this circuit, and a new object will be appended to the circuit. In this case, you may not pass <code>qargs</code> or <code>cargs</code> separately.</p>
 </li>
 <li><p>QuantumCircuit.compose()</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">compose(other, <span class="hljs-attribute">qubits</span>=None, <span class="hljs-attribute">clbits</span>=None, <span class="hljs-attribute">front</span>=<span class="hljs-literal">False</span>, <span class="hljs-attribute">inplace</span>=<span class="hljs-literal">False</span>, <span class="hljs-attribute">wrap</span>=<span class="hljs-literal">False</span>, *, <span class="hljs-attribute">copy</span>=<span class="hljs-literal">True</span>, <span class="hljs-attribute">var_remap</span>=None, <span class="hljs-attribute">inline_captures</span>=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
-
 <p><a target="_blank" rel="noopener" href="https://github.com/Qiskit/qiskit/tree/stable/1.4/qiskit/circuit/quantumcircuit.py#L1797-L2133">GitHub</a></p>
-<p>Apply the instructions from one circuit onto specified qubits and&#x2F;or clbits on another.</p>
+<p>Apply the instructions from one circuit onto specified qubits and/or clbits on another.</p>
 <p>Note</p>
 <p>By default, this creates a new circuit object, leaving <code>self</code> untouched. For most uses of this function, it is far more efficient to set <code>inplace=True</code> and modify the base circuit in-place. </p>
 </li>
 <li><p>对于下面这样两个量子线路来说，都是有三个量子比特，但是有一个还有三个经典比特，这种情况下，qc.append()会出现错误，qc.compose()是有效的</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">circ</span> = QuantumCircuit(<span class="hljs-number">3</span>)<br><span class="hljs-attribute">meas</span> = QuantumCircuit(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)<br><span class="hljs-comment"># 根据测试部分中的描述，现在第0个和第2个量子比特都处于/0&gt;和/1&gt;的叠加态</span><br><span class="hljs-comment"># 每个单态的概率皆为50%=1/2</span><br><span class="hljs-attribute">circ</span>.h(<span class="hljs-number">0</span>)<br><span class="hljs-attribute">circ</span>.h(<span class="hljs-number">2</span>)<br><span class="hljs-attribute">circ</span>.cx(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)<br><br><span class="hljs-attribute">meas</span>.barrier(range(<span class="hljs-number">3</span>))<br><span class="hljs-attribute">meas</span>.measure(range(<span class="hljs-number">3</span>), range(<span class="hljs-number">3</span>))<br><span class="hljs-attribute">qc</span> = circ.compose(meas)<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">circ</span> = QuantumCircuit(<span class="hljs-number">3</span>)<br><span class="hljs-attribute">meas</span> = QuantumCircuit(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)<br><span class="hljs-comment"># 根据测试部分中的描述，现在第0个和第2个量子比特都处于/0&gt;和/1&gt;的叠加态</span><br><span class="hljs-comment"># 每个单态的概率皆为50%=1/2</span><br><span class="hljs-attribute">circ</span>.h(<span class="hljs-number">0</span>)<br><span class="hljs-attribute">circ</span>.h(<span class="hljs-number">2</span>)<br><span class="hljs-attribute">circ</span>.cx(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)<br><br><span class="hljs-attribute">meas</span>.barrier(range(<span class="hljs-number">3</span>))<br><span class="hljs-attribute">meas</span>.measure(range(<span class="hljs-number">3</span>), range(<span class="hljs-number">3</span>))<br><span class="hljs-attribute">qc</span> = circ.compose(meas)<br></code></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 <li></li>
-<li><p>将问题映射到电路和运算符；</p>
-</li>
-<li><p>优化电路；</p>
-</li>
-<li><p>在后端执行它；</p>
-</li>
-<li><p>对结果进行后处理。</p>
-</li>
+</ol>
+<ol>
+<li>将问题映射到电路和运算符；</li>
+<li>优化电路；</li>
+<li>在后端执行它；</li>
+<li>对结果进行后处理。</li>
 </ol>
 
                 
@@ -484,6 +472,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Quantum/" class="print-no-link">#Quantum</a>
+      
+    </div>
   
 </div>
 
