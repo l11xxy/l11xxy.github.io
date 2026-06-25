@@ -19,15 +19,15 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="编程语言不过是落地思路的表达方式，真正值钱的是拆解问题、设计架构的编程思想；在大模型全面普及的时代，代码编写逐步被 AI 替代，思维能力的重要性愈发凸显。 使用cargo构建代码1、检查你的cargo是不是还活着 1cargo --version 2、使用cargo创建项目 1cargo new your_project 3、build and run your project 12cargo b">
+    <meta name="description" content="使用cargo构建代码1、检查你的cargo是不是还活着 1cargo --version 2、使用cargo创建项目 1cargo new your_project 3、build and run your project 12cargo build #会在.&#x2F;target&#x2F;debug下创建可执行文件.&#x2F;target&#x2F;debug&#x2F;your_project #run your project 4、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rust学习">
 <meta property="og:url" content="https://l11xxy.github.io/2026/06/06/rust%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="11xxy&#39;s blog">
-<meta property="og:description" content="编程语言不过是落地思路的表达方式，真正值钱的是拆解问题、设计架构的编程思想；在大模型全面普及的时代，代码编写逐步被 AI 替代，思维能力的重要性愈发凸显。 使用cargo构建代码1、检查你的cargo是不是还活着 1cargo --version 2、使用cargo创建项目 1cargo new your_project 3、build and run your project 12cargo b">
+<meta property="og:description" content="使用cargo构建代码1、检查你的cargo是不是还活着 1cargo --version 2、使用cargo创建项目 1cargo new your_project 3、build and run your project 12cargo build #会在.&#x2F;target&#x2F;debug下创建可执行文件.&#x2F;target&#x2F;debug&#x2F;your_project #run your project 4、">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-06-06T04:03:09.000Z">
-<meta property="article:modified_time" content="2026-06-21T07:29:10.961Z">
+<meta property="article:modified_time" content="2026-06-25T03:54:22.288Z">
 <meta property="article:tag" content="rust">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -336,7 +336,7 @@
         
         
         
-          59 分钟
+          58 分钟
         
       </span>
     
@@ -380,8 +380,7 @@
             
               <div class="markdown-body">
                 
-                <p>编程语言不过是落地思路的表达方式，真正值钱的是拆解问题、设计架构的编程思想；在大模型全面普及的时代，代码编写逐步被 AI 替代，思维能力的重要性愈发凸显。</p>
-<h2 id="使用cargo构建代码"><a href="#使用cargo构建代码" class="headerlink" title="使用cargo构建代码"></a>使用cargo构建代码</h2><p>1、检查你的cargo是不是还活着</p>
+                <h2 id="使用cargo构建代码"><a href="#使用cargo构建代码" class="headerlink" title="使用cargo构建代码"></a>使用cargo构建代码</h2><p>1、检查你的cargo是不是还活着</p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">cargo <span class="hljs-comment">--version</span><br></code></pre></td></tr></table></figure>
 <p>2、使用cargo创建项目</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">cargo <span class="hljs-keyword">new</span> your_project<br></code></pre></td></tr></table></figure>
@@ -458,6 +457,7 @@
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">get_value</span>(qubit: &amp;Qubit) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Option</span>&lt;<span class="hljs-type">u8</span>&gt; &#123;<br>    <span class="hljs-keyword">if</span> qubit.superposed &#123;<br>        <span class="hljs-literal">None</span>  <span class="hljs-comment">// 叠加态下，测量结果是概率性的</span><br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-title function_ invoke__">Some</span>(<span class="hljs-number">0</span>)<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">match</span> <span class="hljs-title function_ invoke__">get_value</span>(&amp;q) &#123;<br>    <span class="hljs-title function_ invoke__">Some</span>(val) =&gt; <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;确定结果: &#123;&#125;&quot;</span>, val),<br>    <span class="hljs-literal">None</span>      =&gt; <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;处于叠加态, 无法得到确定值&quot;</span>),<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>编译器强制处理 <code>Some</code> 和 <code>None</code> 两种情况。</p>
 <h4 id="if-let"><a href="#if-let" class="headerlink" title="if let"></a>if let</h4><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> <span class="hljs-variable">Some</span>(<span class="hljs-number">0</span>) = <span class="hljs-title function_ invoke__">get_value</span>(&amp;q) &#123;<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;确定是 |0⟩ 态&quot;</span>);<br>&#125;<br><span class="hljs-keyword">else</span>&#123;<br>		<span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;处于叠加态&quot;</span>);<br>&#125;<br><span class="hljs-comment">// 等价于 match，是只区分两种情况的 match 语句的&quot;语法糖&quot;</span><br></code></pre></td></tr></table></figure>
+<p>其实感觉在现在这个大模型时代，编程语言已经不在障碍了，学会一门就一通百通了。</p>
 
                 
               </div>
