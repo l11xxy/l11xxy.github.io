@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>rust无畏并发！</title>
+    <link href="/2026/06/26/rust%E6%97%A0%E7%95%8F%E5%B9%B6%E5%8F%91%EF%BC%81/"/>
+    <url>/2026/06/26/rust%E6%97%A0%E7%95%8F%E5%B9%B6%E5%8F%91%EF%BC%81/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>rust</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>并行计算</title>
     <link href="/2026/06/19/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/"/>
     <url>/2026/06/19/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/</url>
@@ -21,7 +40,7 @@
     <link href="/2026/06/17/QuantumGates/"/>
     <url>/2026/06/17/QuantumGates/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>本篇文章介绍一下量子计算中常用的量子门，这些逻辑门是量子电路的基础。</p><p>设$U$为酉矩阵，满足$UU^\dagger&#x3D;I$。通过$\ket{\psi_2}&#x3D;U\ket{\psi_1}$来表示量子态的演化。在量子计算机中，各种形式的酉矩阵被称为量子逻辑门。</p><h4 id="单位门"><a href="#单位门" class="headerlink" title="单位门"></a>单位门</h4><p>其矩阵形式如下：</p><p>$$ I &#x3D; \begin{bmatrix} 1 &amp; 0  \ 0 &amp; 1  \end{bmatrix} $$</p><p>将单位门作用在量子态上，将不会对量子态做任何改变。</p><p>$$ \begin{bmatrix} 1 &amp; 0  \ 0 &amp; 1  \end{bmatrix} \begin{bmatrix} \alpha \ \beta \end{bmatrix} &#x3D; \begin{bmatrix} \alpha \ \beta \end{bmatrix}  $$</p><h4 id="Pauli矩阵"><a href="#Pauli矩阵" class="headerlink" title="Pauli矩阵"></a>Pauli矩阵</h4><p>Pauli矩阵一共有三个，是量子计算不可缺少的部分，分别为 Pauli-X门（量子非门，简称 X 门，矩阵形式可记作 X 或 $\sigma_x$）、Pauli-Y 门（简称 Y 门，矩阵形式可记作 Y 或 $\sigma_y$ ）和 Pauli-Z 门（简称 Z 门，矩阵形式可记作 Z 或 $\sigma_z$ ）。</p><p>$$ \begin{aligned} X &#x3D; \boldsymbol{\sigma}_x &amp;&#x3D; \begin{bmatrix} 0 &amp; 1 \ 1 &amp; 0 \end{bmatrix} \[1em] Y &#x3D; \boldsymbol{\sigma}_y &amp;&#x3D; \begin{bmatrix} 0 &amp; -\mathrm{i} \ \mathrm{i} &amp; 0 \end{bmatrix} \[1em] Z &#x3D; \boldsymbol{\sigma}_z &amp;&#x3D; \begin{bmatrix} 1 &amp; 0 \ 0 &amp; -1 \end{bmatrix} \end{aligned} $$</p><p> <strong>Pauli-X门</strong>被叫做量子非门，是因为它可以反转量子比特的状态：</p><p>$$X\ket{0}&#x3D;X\ket{1}和X\ket{1}&#x3D;X\ket{0}$$</p><p>$X \ket{\Psi}&#x3D; \begin{bmatrix} 0 &amp; 1 \ 1 &amp; 0 \end{bmatrix}\begin{bmatrix} \alpha \ \beta \end{bmatrix}  &#x3D; \begin{bmatrix}  \beta \ \alpha \end{bmatrix} $</p><p><strong>Pauli-Y 门</strong>的作用相当于绕布洛赫球的 Y 轴旋转角度 π**:**</p><p>$Y \ket{\Psi}&#x3D; \begin{bmatrix} 0 &amp; -\mathrm{i} \ \mathrm{i} &amp; 0 \end{bmatrix}\begin{bmatrix} \alpha \ \beta \end{bmatrix} &#x3D; \begin{bmatrix} -i\beta \ i\alpha \end{bmatrix}$</p><p><strong>Pauli-Z 门</strong>的作用相当于绕布洛赫球的 Z 轴旋转角度 π,换言之它将$\alpha\ket{0}+\beta\ket{1}改变为\alpha\ket{0}-\beta\ket{1}$:</p><p>$Z \ket{\Psi}&#x3D;  \begin{bmatrix} 1 &amp; 0 \ 0 &amp; -1 \end{bmatrix}\begin{bmatrix} \alpha \ \beta \end{bmatrix}  &#x3D; \begin{bmatrix} \alpha \ -\beta \end{bmatrix} $</p>]]></content>
     
     
     
