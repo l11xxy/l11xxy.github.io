@@ -27,7 +27,7 @@
 <meta property="og:description" content="本篇文章介绍一下量子计算中常用的量子门，这些逻辑门是量子电路的基础。 设$U$为酉矩阵或者叫幺正矩阵，满足$UU^\dagger&#x3D;I$。通过$\ket{\psi_2}&#x3D;U\ket{\psi_1}$来表示量子态的演化。在量子计算机中，各种形式的酉矩阵被称为量子逻辑门。 单位门其矩阵形式如下： $$ I &#x3D; \begin{bmatrix} 1 &amp; 0  \\ 0 &amp; 1  \end{bmatrix}">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-06-17T11:23:19.000Z">
-<meta property="article:modified_time" content="2026-06-27T08:41:52.993Z">
+<meta property="article:modified_time" content="2026-06-27T08:53:02.706Z">
 <meta property="article:tag" content="Quantum">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -391,7 +391,7 @@
 <p> <strong>Pauli-X门</strong>被叫做量子非门，是因为它可以反转量子比特的状态：</p>
 <p>$$X\ket{0}=X\ket{1}和X\ket{1}=X\ket{0}$$</p>
 <p>$X \ket{\Psi}= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} \alpha \\ \beta \end{bmatrix}  = \begin{bmatrix}  \beta \\ \alpha \end{bmatrix} $</p>
-<p><strong>Pauli-Y 门</strong>的作用相当于绕布洛赫球的 Y 轴旋转角度 π**:**</p>
+<p><strong>Pauli-Y 门</strong>的作用相当于绕布洛赫球的 Y 轴旋转角度 π:</p>
 <p>$Y \ket{\Psi}= \begin{bmatrix} 0 & -\mathrm{i} \\ \mathrm{i} & 0 \end{bmatrix}\begin{bmatrix} \alpha \\ \beta \end{bmatrix} = \begin{bmatrix} -i\beta \\ i\alpha \end{bmatrix}$</p>
 <p><strong>Pauli-Z 门</strong>的作用相当于绕布洛赫球的 Z 轴旋转角度 π,换言之它将$\alpha\ket{0}+\beta\ket{1}改变为\alpha\ket{0}-\beta\ket{1}$:</p>
 <p>$Z \ket{\Psi}=  \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} \alpha \\ \beta \end{bmatrix}  = \begin{bmatrix} \alpha \\ -\beta \end{bmatrix} $</p>
