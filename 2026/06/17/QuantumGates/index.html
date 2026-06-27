@@ -19,15 +19,15 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本篇文章介绍一下量子计算中常用的量子门，这些逻辑门是量子电路的基础。 设$U$为酉矩阵或者叫幺正矩阵，满足$UU^\dagger&#x3D;I$。通过$\ket{\psi_2}&#x3D;U\ket{\psi_1}$来表示量子态的演化。在量子计算机中，各种形式的酉矩阵被称为量子逻辑门。 单位门其矩阵形式如下： $$ I &#x3D; \begin{bmatrix} 1 &amp; 0  \ 0 &amp;">
+    <meta name="description" content="本篇文章介绍一下量子计算中常用的量子门，这些逻辑门是量子电路的基础。 设$U$为酉矩阵或者叫幺正矩阵，满足$UU^\dagger&#x3D;I$。通过$\ket{\psi_2}&#x3D;U\ket{\psi_1}$来表示量子态的演化。在量子计算机中，各种形式的酉矩阵被称为量子逻辑门。 单位门其矩阵形式如下： $$ I &#x3D; \begin{bmatrix} 1 &amp; 0  \\ 0 &amp; 1  \end{bmatrix}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QuantumGates">
 <meta property="og:url" content="https://l11xxy.github.io/2026/06/17/QuantumGates/index.html">
 <meta property="og:site_name" content="11xxy&#39;s blog">
-<meta property="og:description" content="本篇文章介绍一下量子计算中常用的量子门，这些逻辑门是量子电路的基础。 设$U$为酉矩阵或者叫幺正矩阵，满足$UU^\dagger&#x3D;I$。通过$\ket{\psi_2}&#x3D;U\ket{\psi_1}$来表示量子态的演化。在量子计算机中，各种形式的酉矩阵被称为量子逻辑门。 单位门其矩阵形式如下： $$ I &#x3D; \begin{bmatrix} 1 &amp; 0  \ 0 &amp;">
+<meta property="og:description" content="本篇文章介绍一下量子计算中常用的量子门，这些逻辑门是量子电路的基础。 设$U$为酉矩阵或者叫幺正矩阵，满足$UU^\dagger&#x3D;I$。通过$\ket{\psi_2}&#x3D;U\ket{\psi_1}$来表示量子态的演化。在量子计算机中，各种形式的酉矩阵被称为量子逻辑门。 单位门其矩阵形式如下： $$ I &#x3D; \begin{bmatrix} 1 &amp; 0  \\ 0 &amp; 1  \end{bmatrix}">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-06-17T11:23:19.000Z">
-<meta property="article:modified_time" content="2026-06-27T07:45:20.370Z">
+<meta property="article:modified_time" content="2026-06-27T08:41:52.993Z">
 <meta property="article:tag" content="Quantum">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -325,7 +325,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k 字
+          4.2k 字
         
       </span>
     
@@ -336,7 +336,7 @@
         
         
         
-          39 分钟
+          35 分钟
         
       </span>
     
@@ -381,81 +381,105 @@
               <div class="markdown-body">
                 
                 <p>本篇文章介绍一下量子计算中常用的量子门，这些逻辑门是量子电路的基础。</p>
-<p>设$U$为酉矩阵或者叫幺正矩阵，满足$UU^\dagger&#x3D;I$。通过$\ket{\psi_2}&#x3D;U\ket{\psi_1}$来表示量子态的演化。在量子计算机中，各种形式的酉矩阵被称为量子逻辑门。</p>
+<p>设$U$为酉矩阵或者叫幺正矩阵，满足$UU^\dagger=I$。通过$\ket{\psi_2}=U\ket{\psi_1}$来表示量子态的演化。在量子计算机中，各种形式的酉矩阵被称为量子逻辑门。</p>
 <h4 id="单位门"><a href="#单位门" class="headerlink" title="单位门"></a>单位门</h4><p>其矩阵形式如下：</p>
-<p>$$ I &#x3D; \begin{bmatrix} 1 &amp; 0  \ 0 &amp; 1  \end{bmatrix} $$</p>
+<p>$$ I = \begin{bmatrix} 1 & 0  \\ 0 & 1  \end{bmatrix} $$</p>
 <p>将单位门作用在量子态上，将不会对量子态做任何改变。</p>
-<p>$$ \begin{bmatrix} 1 &amp; 0  \ 0 &amp; 1  \end{bmatrix} \begin{bmatrix} \alpha \ \beta \end{bmatrix} &#x3D; \begin{bmatrix} \alpha \ \beta \end{bmatrix}  $$</p>
+<p>$$ \begin{bmatrix} 1 & 0  \\ 0 & 1  \end{bmatrix} \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}  $$</p>
 <h4 id="Pauli矩阵"><a href="#Pauli矩阵" class="headerlink" title="Pauli矩阵"></a>Pauli矩阵</h4><p>Pauli矩阵一共有三个，是量子计算不可缺少的部分，分别为 Pauli-X门（量子非门，简称 X 门，矩阵形式可记作 X 或 $\sigma_x$）、Pauli-Y 门（简称 Y 门，矩阵形式可记作 Y 或 $\sigma_y$ ）和 Pauli-Z 门（简称 Z 门，矩阵形式可记作 Z 或 $\sigma_z$ ）。</p>
-<p>$$ \begin{aligned} X &#x3D; \boldsymbol{\sigma}_x &amp;&#x3D; \begin{bmatrix} 0 &amp; 1 \ 1 &amp; 0 \end{bmatrix} \[1em] Y &#x3D; \boldsymbol{\sigma}_y &amp;&#x3D; \begin{bmatrix} 0 &amp; -\mathrm{i} \ \mathrm{i} &amp; 0 \end{bmatrix} \[1em] Z &#x3D; \boldsymbol{\sigma}_z &amp;&#x3D; \begin{bmatrix} 1 &amp; 0 \ 0 &amp; -1 \end{bmatrix} \end{aligned} $$</p>
+<p>$$ \begin{aligned} X = \boldsymbol{\sigma}_x &= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \\[1em] Y = \boldsymbol{\sigma}_y &= \begin{bmatrix} 0 & -\mathrm{i} \\ \mathrm{i} & 0 \end{bmatrix} \\[1em] Z = \boldsymbol{\sigma}_z &= \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \end{aligned} $$</p>
 <p> <strong>Pauli-X门</strong>被叫做量子非门，是因为它可以反转量子比特的状态：</p>
-<p>$$X\ket{0}&#x3D;X\ket{1}和X\ket{1}&#x3D;X\ket{0}$$</p>
-<p>$X \ket{\Psi}&#x3D; \begin{bmatrix} 0 &amp; 1 \ 1 &amp; 0 \end{bmatrix}\begin{bmatrix} \alpha \ \beta \end{bmatrix}  &#x3D; \begin{bmatrix}  \beta \ \alpha \end{bmatrix} $</p>
+<p>$$X\ket{0}=X\ket{1}和X\ket{1}=X\ket{0}$$</p>
+<p>$X \ket{\Psi}= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} \alpha \\ \beta \end{bmatrix}  = \begin{bmatrix}  \beta \\ \alpha \end{bmatrix} $</p>
 <p><strong>Pauli-Y 门</strong>的作用相当于绕布洛赫球的 Y 轴旋转角度 π**:**</p>
-<p>$Y \ket{\Psi}&#x3D; \begin{bmatrix} 0 &amp; -\mathrm{i} \ \mathrm{i} &amp; 0 \end{bmatrix}\begin{bmatrix} \alpha \ \beta \end{bmatrix} &#x3D; \begin{bmatrix} -i\beta \ i\alpha \end{bmatrix}$</p>
+<p>$Y \ket{\Psi}= \begin{bmatrix} 0 & -\mathrm{i} \\ \mathrm{i} & 0 \end{bmatrix}\begin{bmatrix} \alpha \\ \beta \end{bmatrix} = \begin{bmatrix} -i\beta \\ i\alpha \end{bmatrix}$</p>
 <p><strong>Pauli-Z 门</strong>的作用相当于绕布洛赫球的 Z 轴旋转角度 π,换言之它将$\alpha\ket{0}+\beta\ket{1}改变为\alpha\ket{0}-\beta\ket{1}$:</p>
-<p>$Z \ket{\Psi}&#x3D;  \begin{bmatrix} 1 &amp; 0 \ 0 &amp; -1 \end{bmatrix}\begin{bmatrix} \alpha \ \beta \end{bmatrix}  &#x3D; \begin{bmatrix} \alpha \ -\beta \end{bmatrix} $</p>
+<p>$Z \ket{\Psi}=  \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} \alpha \\ \beta \end{bmatrix}  = \begin{bmatrix} \alpha \\ -\beta \end{bmatrix} $</p>
 <p>Pauli矩阵和单位矩阵构成了2*2厄米矩阵的向量空间的一组基，这意味着所有的2*2的厄米矩阵都可以通过这组基通过线性组合进行构造。</p>
 <p>Pauli矩阵都是对合矩阵，满足：</p>
-<p>$$II&#x3D;XX&#x3D;YY&#x3D;ZZ&#x3D;I$$</p>
-<h4 id="旋转门"><a href="#旋转门" class="headerlink" title="旋转门"></a>旋转门</h4><p>在了解旋转门之前，需要证明：设$x$是个实数，$A$ 是一个矩阵，且满足 $A^2 &#x3D; I$ ，则有$ exp(ixA) &#x3D; (cos x)I +i(sin x)A$。该等式可利用 $e $指数的泰勒展开及$ A^2 &#x3D; I$得证，下面详细进行证明一下：</p>
+<p>$$II=XX=YY=ZZ=I$$</p>
+<h4 id="旋转门"><a href="#旋转门" class="headerlink" title="旋转门"></a>旋转门</h4><p>在了解旋转门之前，需要证明：设$x$是个实数，$A$ 是一个矩阵，且满足 $A^2 = I$ ，则有$ exp(ixA) = (cos x)I +i(sin x)A$。该等式可利用 $e $指数的泰勒展开及$ A^2 = I$得证，下面详细进行证明一下：</p>
 <hr>
 <p>已知：</p>
 <ul>
-<li>A 是一个方阵，满足 $A^2 &#x3D; I（I 为同阶单位矩阵）$；</li>
+<li>A 是一个方阵，满足 $A^2 = I（I 为同阶单位矩阵）$；</li>
 <li>x 为任意实数；</li>
-<li>矩阵指数函数$ \exp(M)$由泰勒级数定义：$\exp(M) &#x3D; \sum_{k&#x3D;0}^{\infty} \frac{M^k}{k!}$该级数对任意方阵 $M $ 都绝对收敛。</li>
+<li>矩阵指数函数$ \exp(M)$由泰勒级数定义：$\exp(M) = \sum_{k=0}^{\infty} \frac{M^k}{k!}$该级数对任意方阵 $M $ 都绝对收敛。</li>
 </ul>
 <p>待证：</p>
-<p>$exp(ixA) &#x3D; (\cos x),I + i(\sin x),A$</p>
+<p>$exp(ixA) = (\cos x)\,I + i(\sin x)\,A$</p>
 <hr>
 <p><strong>步骤 1：代入矩阵指数的泰勒展开</strong></p>
-<p>将 $M &#x3D; ixA $代入矩阵指数的定义式：</p>
-<p>$\exp(ixA) &#x3D; \sum_{k&#x3D;0}^{\infty} \frac{(ixA)^k}{k!}$</p>
-<p>根据矩阵数乘的幂运算性质 $(cA)^k &#x3D; c^k A^k$，展开得：</p>
-<p>$\exp(ixA) &#x3D; \sum_{k&#x3D;0}^{\infty} \frac{(ix)^k \cdot A^k}{k!}$</p>
-<p><strong>步骤 2：利用 $A^2&#x3D;I $化简$ A $的幂次规律</strong></p>
-<p>由条件$ A^2 &#x3D; I$，我们可以推出任意正整数次幂 $A^k$的结果：</p>
+<p>将 $M = ixA $代入矩阵指数的定义式：</p>
+<p>$\exp(ixA) = \sum_{k=0}^{\infty} \frac{(ixA)^k}{k!}$</p>
+<p>根据矩阵数乘的幂运算性质 $(cA)^k = c^k A^k$，展开得：</p>
+<p>$\exp(ixA) = \sum_{k=0}^{\infty} \frac{(ix)^k \cdot A^k}{k!}$</p>
+<p><strong>步骤 2：利用 $A^2=I $化简$ A $的幂次规律</strong></p>
+<p>由条件$ A^2 = I$，我们可以推出任意正整数次幂 $A^k$的结果：</p>
 <ul>
-<li>$A^0 &#x3D; I$（零次幂约定）</li>
-<li>$A^1 &#x3D; A$</li>
-<li>$A^2 &#x3D; I$</li>
-<li>$A^3 &#x3D; A^2 \cdot A &#x3D; I \cdot A &#x3D; A$</li>
-<li>$A^4 &#x3D; (A^2)^2 &#x3D; I^2 &#x3D; I$</li>
+<li>$A^0 = I$（零次幂约定）</li>
+<li>$A^1 = A$</li>
+<li>$A^2 = I$</li>
+<li>$A^3 = A^2 \cdot A = I \cdot A = A$</li>
+<li>$A^4 = (A^2)^2 = I^2 = I$</li>
 <li>……</li>
 </ul>
 <p>由此可总结出统一规律：</p>
 <ul>
-<li>当 k 为<strong>偶数</strong>时，设 $k&#x3D;2n$（n 为非负整数），则 $A^{2n} &#x3D; (A^2)^n &#x3D; I^n &#x3D; I$；</li>
-<li>当 k 为<strong>奇数</strong>时，设 $k&#x3D;2n+1$，则 $A^{2n+1} &#x3D; A^{2n} \cdot A &#x3D; I \cdot A &#x3D; A$。</li>
+<li>当 k 为<strong>偶数</strong>时，设 $k=2n$（n 为非负整数），则 $A^{2n} = (A^2)^n = I^n = I$；</li>
+<li>当 k 为<strong>奇数</strong>时，设 $k=2n+1$，则 $A^{2n+1} = A^{2n} \cdot A = I \cdot A = A$。</li>
 </ul>
 <p><strong>步骤 3：将级数按奇偶项拆分</strong></p>
 <p>把无穷级数拆分为<strong>偶数项求和</strong>和<strong>奇数项求和</strong>两部分：</p>
-<p>$\sum_{k&#x3D;0}^{\infty} \frac{(ix)^k A^k}{k!} &#x3D; \underbrace{\sum_{n&#x3D;0}^{\infty} \frac{(ix)^{2n} A^{2n}}{(2n)!}}<em>{\text{偶数项 } k&#x3D;2n} + \underbrace{\sum</em>{n&#x3D;0}^{\infty} \frac{(ix)^{2n+1} A^{2n+1}}{(2n+1)!}}_{\text{奇数项 } k&#x3D;2n+1}$</p>
+<p>$\sum_{k=0}^{\infty} \frac{(ix)^k A^k}{k!} = \underbrace{\sum_{n=0}^{\infty} \frac{(ix)^{2n} A^{2n}}{(2n)!}}_{\text{偶数项 } k=2n} + \underbrace{\sum_{n=0}^{\infty} \frac{(ix)^{2n+1} A^{2n+1}}{(2n+1)!}}_{\text{奇数项 } k=2n+1}$</p>
 <p>分别化简两部分：</p>
 <p>（1）偶数项部分</p>
-<p>代入 $A^{2n}&#x3D;I$，并化简虚数单位的幂：</p>
-<p>$(ix)^{2n} &#x3D; i^{2n} x^{2n} &#x3D; (i^2)^n x^{2n} &#x3D; (-1)^n x^{2n}$</p>
+<p>代入 $A^{2n}=I$，并化简虚数单位的幂：</p>
+<p>$(ix)^{2n} = i^{2n} x^{2n} = (i^2)^n x^{2n} = (-1)^n x^{2n}$</p>
 <p>因此偶数项变为：</p>
-<p>$\sum_{n&#x3D;0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} \cdot I$</p>
+<p>$\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} \cdot I$</p>
 <p>（2）奇数项部分</p>
-<p>代入 $A^{2n+1}&#x3D;A$，同理化简虚数幂：</p>
-<p>$(ix)^{2n+1} &#x3D; i^{2n+1} x^{2n+1} &#x3D; i \cdot i^{2n} x^{2n+1} &#x3D; i \cdot (-1)^n x^{2n+1}$</p>
+<p>代入 $A^{2n+1}=A$，同理化简虚数幂：</p>
+<p>$(ix)^{2n+1} = i^{2n+1} x^{2n+1} = i \cdot i^{2n} x^{2n+1} = i \cdot (-1)^n x^{2n+1}$</p>
 <p>因此奇数项变为：</p>
-<p>$\sum_{n&#x3D;0}^{\infty} \frac{i \cdot (-1)^n x^{2n+1}}{(2n+1)!} \cdot A &#x3D; i \cdot \left( \sum_{n&#x3D;0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} \right) \cdot A$</p>
+<p>$\sum_{n=0}^{\infty} \frac{i \cdot (-1)^n x^{2n+1}}{(2n+1)!} \cdot A = i \cdot \left( \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} \right) \cdot A$</p>
 <p><strong>步骤 4：代入余弦、正弦的泰勒展开</strong></p>
 <p>回忆实数域上余弦、正弦函数的泰勒级数（麦克劳林展开）：</p>
-<p>$\cos x &#x3D; \sum_{n&#x3D;0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!}, \quad \sin x &#x3D; \sum_{n&#x3D;0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}$</p>
+<p>$\cos x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!}, \quad \sin x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}$</p>
 <p>将其分别代入偶数项和奇数项：</p>
 <ul>
 <li>偶数项 &#x3D; $(\cos x) \cdot I$</li>
 <li>奇数项 &#x3D; $i \cdot (\sin x) \cdot A$</li>
 </ul>
-<p>最终两部分一合并，即可得到$\boldsymbol{\exp(ixA) &#x3D; (\cos x),I + i(\sin x),A}$</p>
+<p>最终两部分一合并，即可得到$\boldsymbol{\exp(ixA) = (\cos x)\,I + i(\sin x)\,A}$</p>
 <hr>
-<p>由于量子计算中的泡利矩阵 $X,Y,Z$都满足平方等于单位矩$X^2&#x3D;Y^2&#x3D;Z^2&#x3D;I$，因此可以直接套用该公式得到泡利旋转门的矩阵形式。</p>
-<h1 id="量子计算中，旋转门有三种形式，分别可以以不同的Pauli矩阵作为一组基构成，我们在前一节Pauli矩阵最后也有讲到：-mathbf-R-x-theta-mathrm-e-mathrm-i-frac-theta-mathbf-X-2-cos-left-frac-theta-2-right-mathbf-I-mathrm-i-sin-left-frac-theta-2-right-mathbf-X"><a href="#量子计算中，旋转门有三种形式，分别可以以不同的Pauli矩阵作为一组基构成，我们在前一节Pauli矩阵最后也有讲到：-mathbf-R-x-theta-mathrm-e-mathrm-i-frac-theta-mathbf-X-2-cos-left-frac-theta-2-right-mathbf-I-mathrm-i-sin-left-frac-theta-2-right-mathbf-X" class="headerlink" title="量子计算中，旋转门有三种形式，分别可以以不同的Pauli矩阵作为一组基构成，我们在前一节Pauli矩阵最后也有讲到：$$\mathbf{R_x}(\theta) &#x3D; \mathrm{e}^{-\mathrm{i}\frac{\theta \mathbf{X}}{2}}&#x3D; \cos\left(\frac{\theta}{2}\right)\mathbf{I} - \mathrm{i}\sin\left(\frac{\theta}{2}\right)\mathbf{X}"></a>量子计算中，旋转门有三种形式，分别可以以不同的Pauli矩阵作为一组基构成，我们在前一节Pauli矩阵最后也有讲到：<br>$$<br>\mathbf{R_x}(\theta) &#x3D; \mathrm{e}^{-\mathrm{i}\frac{\theta \mathbf{X}}{2}}<br>&#x3D; \cos\left(\frac{\theta}{2}\right)\mathbf{I} - \mathrm{i}\sin\left(\frac{\theta}{2}\right)\mathbf{X}</h1><h1 id="begin-bmatrix-cos-left-frac-theta-2-right-mathrm-i-sin-left-frac-theta-2-right-mathrm-i-sin-left-frac-theta-2-right-cos-left-frac-theta-2-right-end-bmatrix-mathbf-R-y-theta-mathrm-e-mathrm-i-frac-theta-mathbf-Y-2-cos-left-frac-theta-2-right-mathbf-I-mathrm-i-sin-left-frac-theta-2-right-mathbf-Y"><a href="#begin-bmatrix-cos-left-frac-theta-2-right-mathrm-i-sin-left-frac-theta-2-right-mathrm-i-sin-left-frac-theta-2-right-cos-left-frac-theta-2-right-end-bmatrix-mathbf-R-y-theta-mathrm-e-mathrm-i-frac-theta-mathbf-Y-2-cos-left-frac-theta-2-right-mathbf-I-mathrm-i-sin-left-frac-theta-2-right-mathbf-Y" class="headerlink" title="\begin{bmatrix}\cos\left(\frac{\theta}{2}\right) &amp; -\mathrm{i}\sin\left(\frac{\theta}{2}\right) \-\mathrm{i}\sin\left(\frac{\theta}{2}\right) &amp; \cos\left(\frac{\theta}{2}\right)\end{bmatrix}\\mathbf{R_y}(\theta) &#x3D; \mathrm{e}^{-\mathrm{i}\frac{\theta \mathbf{Y}}{2}}&#x3D; \cos\left(\frac{\theta}{2}\right)\mathbf{I} - \mathrm{i}\sin\left(\frac{\theta}{2}\right)\mathbf{Y}"></a>\begin{bmatrix}<br>\cos\left(\frac{\theta}{2}\right) &amp; -\mathrm{i}\sin\left(\frac{\theta}{2}\right) \<br>-\mathrm{i}\sin\left(\frac{\theta}{2}\right) &amp; \cos\left(\frac{\theta}{2}\right)<br>\end{bmatrix}<br>\<br>\mathbf{R_y}(\theta) &#x3D; \mathrm{e}^{-\mathrm{i}\frac{\theta \mathbf{Y}}{2}}<br>&#x3D; \cos\left(\frac{\theta}{2}\right)\mathbf{I} - \mathrm{i}\sin\left(\frac{\theta}{2}\right)\mathbf{Y}</h1><p>\begin{bmatrix}<br>\cos\left(\frac{\theta}{2}\right) &amp; -\sin\left(\frac{\theta}{2}\right) \<br>\sin\left(\frac{\theta}{2}\right) &amp; \cos\left(\frac{\theta}{2}\right)<br>\end{bmatrix}<br>\</p>
-<h1 id="mathbf-R-z-theta-mathrm-e-mathrm-i-frac-theta-mathbf-Z-2-cos-left-frac-theta-2-right-mathbf-I-mathrm-i-sin-left-frac-theta-2-right-mathbf-Z"><a href="#mathbf-R-z-theta-mathrm-e-mathrm-i-frac-theta-mathbf-Z-2-cos-left-frac-theta-2-right-mathbf-I-mathrm-i-sin-left-frac-theta-2-right-mathbf-Z" class="headerlink" title="\mathbf{R_z}(\theta) &#x3D; \mathrm{e}^{-\mathrm{i}\frac{\theta \mathbf{Z}}{2}}&#x3D; \cos\left(\frac{\theta}{2}\right)\mathbf{I} - \mathrm{i}\sin\left(\frac{\theta}{2}\right)\mathbf{Z}"></a>\mathbf{R_z}(\theta) &#x3D; \mathrm{e}^{-\mathrm{i}\frac{\theta \mathbf{Z}}{2}}<br>&#x3D; \cos\left(\frac{\theta}{2}\right)\mathbf{I} - \mathrm{i}\sin\left(\frac{\theta}{2}\right)\mathbf{Z}</h1><p>\begin{bmatrix}<br>\mathrm{e}^{-\mathrm{i}\frac{\theta}{2}} &amp; 0 \<br>0 &amp; \mathrm{e}^{\mathrm{i}\frac{\theta}{2}}<br>\end{bmatrix}<br>$$</p>
+<p>由于量子计算中的泡利矩阵 $X,Y,Z$都满足平方等于单位矩$X^2=Y^2=Z^2=I$，因此可以直接套用该公式得到泡利旋转门的矩阵形式。</p>
+<p>量子计算中，旋转门有三种形式，分别可以以不同的Pauli矩阵作为一组基构成，我们在前一节Pauli矩阵最后也有讲到：<br>$$
+\mathbf{R_x}(\theta) = \mathrm{e}^{-\mathrm{i}\frac{\theta \mathbf{X}}{2}}
+= \cos\left(\frac{\theta}{2}\right)\mathbf{I} - \mathrm{i}\sin\left(\frac{\theta}{2}\right)\mathbf{X}
+=
+\begin{bmatrix}
+\cos\left(\frac{\theta}{2}\right) & -\mathrm{i}\sin\left(\frac{\theta}{2}\right) \\
+-\mathrm{i}\sin\left(\frac{\theta}{2}\right) & \cos\left(\frac{\theta}{2}\right)
+\end{bmatrix}
+\\
+\mathbf{R_y}(\theta) = \mathrm{e}^{-\mathrm{i}\frac{\theta \mathbf{Y}}{2}}
+= \cos\left(\frac{\theta}{2}\right)\mathbf{I} - \mathrm{i}\sin\left(\frac{\theta}{2}\right)\mathbf{Y}
+=
+\begin{bmatrix}
+\cos\left(\frac{\theta}{2}\right) & -\sin\left(\frac{\theta}{2}\right) \\
+\sin\left(\frac{\theta}{2}\right) & \cos\left(\frac{\theta}{2}\right)
+\end{bmatrix}
+\\
+
+\mathbf{R_z}(\theta) = \mathrm{e}^{-\mathrm{i}\frac{\theta \mathbf{Z}}{2}}
+= \cos\left(\frac{\theta}{2}\right)\mathbf{I} - \mathrm{i}\sin\left(\frac{\theta}{2}\right)\mathbf{Z}
+=
+\begin{bmatrix}
+\mathrm{e}^{-\mathrm{i}\frac{\theta}{2}} & 0 \\
+0 & \mathrm{e}^{\mathrm{i}\frac{\theta}{2}}
+\end{bmatrix}
+$$</p>
 
                 
               </div>
