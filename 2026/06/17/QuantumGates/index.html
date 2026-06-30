@@ -27,7 +27,7 @@
 <meta property="og:description" content="本篇文章介绍一下量子计算中常用的量子门，这些逻辑门是量子电路的基础。 设$U$为酉矩阵或者叫幺正矩阵，满足$UU^\dagger&#x3D;I$。通过$\ket{\psi_2}&#x3D;U\ket{\psi_1}$来表示量子态的演化。在量子计算机中，各种形式的酉矩阵被称为量子逻辑门。 单量子比特门单位门其矩阵形式如下： $$ I &#x3D; \begin{bmatrix} 1 &amp; 0  \\ 0 &amp; 1  \end{bma">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-06-17T11:23:19.000Z">
-<meta property="article:modified_time" content="2026-06-29T08:15:51.069Z">
+<meta property="article:modified_time" content="2026-06-30T08:04:25.104Z">
 <meta property="article:tag" content="Quantum">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -597,7 +597,7 @@ $$</p>
 0 & 0 & 1 & 0
 \end{bmatrix}
 $$<br>将cx门作用于$\ket{00}和\ket{01}$，状态不变：<br>$$
-\mathrm{CX}_{0,1}|00\rangle &=
+\mathrm{CX}_{0,1}|00\rangle =
 \begin{bmatrix}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
@@ -614,7 +614,7 @@ $$<br>将cx门作用于$\ket{00}和\ket{01}$，状态不变：<br>$$
 = |00\rangle \\[6pt]
 $$</p>
 <p>$$
-\mathrm{CX}_{0,1}|01\rangle &=
+\mathrm{CX}_{0,1}|01\rangle =
 \begin{bmatrix}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
@@ -631,7 +631,7 @@ $$</p>
 = |01\rangle \\[6pt]
 $$</p>
 <p>将cx门作用于$\ket{10}和\ket{11}$，会翻转第二个量子比特，当且仅当第一个量子比特处于$\ket{1}$态时：<br>$$
-\mathrm{CX}_{0,1}|10\rangle &=
+\mathrm{CX}_{0,1}|10\rangle =
 \begin{bmatrix}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
@@ -648,7 +648,7 @@ $$</p>
 = |11\rangle \\[6pt]
 $$</p>
 <p>$$
-\mathrm{CX}_{0,1}|11\rangle &=
+\mathrm{CX}_{0,1}|11\rangle =
 \begin{bmatrix}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
